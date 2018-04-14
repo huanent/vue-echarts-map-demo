@@ -5,8 +5,9 @@
 <script>
 import Echarts from "echarts";
 import Axios from "axios";
-import Pinyin from "simple-pinyin";
-import CityMap from "../data/china-main-city-map.js";
+import CityMap from "../../map/city-map";
+import ProvinceMap from "../../map/province-map";
+import provinceMap from '../../map/province-map';
 
 export default {
   data() {
@@ -41,14 +42,14 @@ export default {
     async onProvinceClick(e) {
       this.chart.showLoading();
       let name = e.batch[0].name;
-      let pinyinName = Pinyin(name).join("");
+      let pinyinName = provinceMap[name]
       let mapJson = await Axios.get(
         `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/${pinyinName}.json`
       );
       Echarts.registerMap(pinyinName, mapJson.data);
       this.option.series[0].mapType = pinyinName;
       this.chart.setOption(this.option);
-      this.chart.off("mapselectchanged",this.onProvinceClick);
+      this.chart.off("mapselectchanged", this.onProvinceClick);
       this.chart.on("mapselectchanged", this.onCityClick);
       this.chart.hideLoading();
     },
@@ -62,7 +63,7 @@ export default {
       Echarts.registerMap(cityCode, mapJson.data);
       this.option.series[0].mapType = cityCode;
       this.chart.setOption(this.option);
-      this.chart.off("mapselectchanged",this.onCityClick);
+      this.chart.off("mapselectchanged", this.onCityClick);
       this.chart.hideLoading();
     }
   }

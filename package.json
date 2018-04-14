@@ -9,7 +9,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "echarts": "^4.0.4",
-    "simple-pinyin": "^3.0.2",
     "vue": "^2.5.13"
   },
   "devDependencies": {
