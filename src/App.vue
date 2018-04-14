@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <map></map>
+    <map-com></map-com>
   </div>
 </template>
 
 <script>
-import Map from "./components/Map.vue";
+import MapCom from "./components/Map.vue";
 
 export default {
   name: "app",
-  components: { Map }
+  components: { MapCom }
 };
 </script>
 
