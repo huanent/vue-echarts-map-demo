@@ -43,6 +43,11 @@ export default {
       this.chart.showLoading();
       let name = e.batch[0].name;
       let pinyinName = provinceMap[name]
+      /**
+       * 陕西与山西 key重名
+       * 在 map/province 文件夹下面新增了 shanxi1.json 文件 即为陕西地图的json文件
+       * 将陕西的key设置为“shanxi1”
+      */
       let mapJson = await Axios.get(
         `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/${pinyinName}.json`
       );
