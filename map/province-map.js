@@ -24,6 +24,7 @@ export default{
     "山东":"shandong",
     "上海":"shanghai",
     "山西":"shanxi",
+    "陕西":"shanxi1",
     "四川":"sichuan",
     "台湾":"taiwan",
     "天津":"tianjin",
